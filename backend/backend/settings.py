@@ -34,7 +34,7 @@ INSTALLED_APPS = [
 
     # Apps de terceros
     'rest_framework',
-
+    'corsheaders',  
     # Tus apps locales
     'core',
 ]
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 # =========================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',  # 👉 para archivos estáticos en producción
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +74,14 @@ TEMPLATES = [
         },
     },
 ]
-
+CORS_ALLOWED_ORIGINS = [
+    "https://lupithasotho.github.io/montreal-atlacomulco/",  # 👈 Tu frontend en GitHub Pages
+]
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://lupithasotho.github.io/montreal-atlacomulco/",
+    "montreal-backend-production.up.railway.app",  # tu backend
+]
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 # =========================
