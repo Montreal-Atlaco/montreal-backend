@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # CORS y CSRF CORREGIDOS 🚀
 # =========================
 CORS_ALLOWED_ORIGINS = [
-    "https://lupithasotho.github.io",  # ✅ Tu frontend (dominio base)
+    "https://lupithasotho.github.io",  # ✅ solo dominio, sin ruta
 ]
 
+# ⚠️ No usar CORS_ALLOW_ALL_ORIGINS=True junto con la lista anterior
 CSRF_TRUSTED_ORIGINS = [
-    "https://lupithasotho.github.io",  # ✅ Autoriza al frontend a enviar POST/PUT a Django
-    "https://montreal-backend-production.up.railway.app",  # ✅ Autoriza al propio backend (necesario para el panel /admin en vivo)
+    "https://montreal-backend-production.up.railway.app",  # ✅ con https://
 ]
 
 # =========================
